@@ -1,4 +1,8 @@
 ﻿using Sitecore.Configuration;
+using Sitecore.Data.Events;
+using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
+using Sitecore.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +60,46 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                 finally
                 {
 
+                }
+            }
+        }
+
+        public void OnItemCreated(object sender, EventArgs args)
+        {
+            var createdArgs = Event.ExtractParameter(args, 0) as ItemCreatedEventArgs;
+
+            Assert.IsNotNull(createdArgs, "args");
+            if (createdArgs != null)
+            {
+                Assert.IsNotNull(createdArgs.Item, "item");
+                if (createdArgs.Item != null)
+                {
+                    Item item = createdArgs.Item;
+                    var trackingItem = Factory.GetDatabase("master").GetItem("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}");
+                    var currentItemsList = trackingItem["Current Saved Items"];
+                    if (string.IsNullOrWhiteSpace(currentItemsList))
+                    {
+                        trackingItem.Editing.BeginEdit();
+                        trackingItem["Current Saved Items"] = item.ID.ToString();
+                        trackingItem.Editing.EndEdit();
+
+                    }
+                    else
+                    {
+                        var currentString = trackingItem["Current Saved Items"];
+                        var newid = "\r\n" + item.ID.ToString();
+                        if (currentString.Contains(newid))
+                        {
+                            //Do Nothing
+                        }
+                        else
+                        {
+                            trackingItem.Editing.BeginEdit();
+                            trackingItem["Current Saved Items"] = currentString + newid;
+                            trackingItem.Editing.EndEdit();
+
+                        }
+                    }
                 }
             }
         }
