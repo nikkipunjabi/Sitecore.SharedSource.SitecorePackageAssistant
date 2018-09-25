@@ -23,7 +23,15 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
             Sitecore.Diagnostics.Assert.IsNotNull(eventArgs, "eventArgs");
             Sitecore.Data.Items.Item item = eventArgs.Parameters[0] as Sitecore.Data.Items.Item;
             Sitecore.Diagnostics.Assert.IsNotNull(item, "item");
-            if (item.Database != null && item.ID != new Sitecore.Data.ID("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}"))
+
+            //{22219A9A-27BB-4506-B8C8-70DDA639C7F2} -- is the id of Sitecore PowerShell Extensions admin item
+            //sitecore/system/Modules/PowerShell/Settings/ISE/sitecore/admin
+            //It autosave the script when we execute. 
+            //This item shouldn't be tracked at all.
+            //It can be added in untracked item as well
+
+            if (item.Database != null && item.ID != new Sitecore.Data.ID("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}")
+                && item.ID != new Data.ID("{22219A9A-27BB-4506-B8C8-70DDA639C7F2}"))
             {
                 try
                 {
