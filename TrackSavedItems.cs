@@ -36,7 +36,7 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                 try
                 {
                     var trackingItem = Factory.GetDatabase("master").GetItem("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}");
-                    var newid = "\r\n" + item.ID.ToString();
+                    var newid = item.ID.ToString();
                     bool doTrackItem = true;
                     //Do not track if this ID is present in Untrack Items
                     var untrackItemsList = trackingItem["Untrack Items"];
@@ -50,7 +50,7 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                         if (string.IsNullOrWhiteSpace(currentItemsList))
                         {
                             trackingItem.Editing.BeginEdit();
-                            trackingItem["Current Saved Items"] = item.ID.ToString();
+                            trackingItem["Current Saved Items"] = newid;
                             trackingItem.Editing.EndEdit();
 
                         }
@@ -64,7 +64,7 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                             else
                             {
                                 trackingItem.Editing.BeginEdit();
-                                trackingItem["Current Saved Items"] = currentString + newid;
+                                trackingItem["Current Saved Items"] = currentString + "\r\n" + newid;
                                 trackingItem.Editing.EndEdit();
 
                             }
@@ -105,13 +105,13 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                     else
                     {
                         var currentString = trackingItem["Current Saved Items"];
-                        var newid = "\r\n" + item.ID.ToString();
-                        if (currentString.Contains(newid))
+                        if (currentString.Contains(item.ID.ToString()))
                         {
                             //Do Nothing
                         }
                         else
                         {
+                            var newid = "\r\n" + item.ID.ToString();
                             trackingItem.Editing.BeginEdit();
                             trackingItem["Current Saved Items"] = currentString + newid;
                             trackingItem.Editing.EndEdit();

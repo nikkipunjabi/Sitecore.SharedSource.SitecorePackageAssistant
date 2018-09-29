@@ -9,7 +9,7 @@ using Sitecore.Data.Items;
 
 namespace Sitecore.SharedSource.SitecorePackageCreator
 {
-    public class UntrackItem : Sitecore.Shell.Framework.Commands.Command
+    public class TrackItemCommand : Sitecore.Shell.Framework.Commands.Command
     {
         public override void Execute(Sitecore.Shell.Framework.Commands.CommandContext context)
         {
@@ -42,37 +42,37 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
 
                 var trackingItem = Factory.GetDatabase("master").GetItem("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}");
                 var newID = args.Parameters["id"];
-                var currentItemsList = trackingItem["Untrack Items"];
+                var currentItemsList = trackingItem["Current Saved Items"];
                 if (string.IsNullOrWhiteSpace(currentItemsList))
                 {
                     trackingItem.Editing.BeginEdit();
-                    trackingItem["Untrack Items"] = args.Parameters["id"];
+                    trackingItem["Current Saved Items"] = args.Parameters["id"];
                     trackingItem.Editing.EndEdit();
 
                 }
                 else
                 {
-                    var currentString = trackingItem["Untrack Items"];
-                    if (currentString.Contains(newID))
+                    if (currentItemsList.Contains(newID))
                     {
                         //Do Nothing
                     }
                     else
                     {
                         trackingItem.Editing.BeginEdit();
-                        trackingItem["Untrack Items"] = currentString + "\r\n" + newID;
+                        trackingItem["Current Saved Items"] = currentItemsList + "\r\n" + newID;
                         trackingItem.Editing.EndEdit();
 
                     }
                 }
 
                 //Remove Item ID from Current Saved Items, if present.
-                var currentTrackedItems = trackingItem["Current Saved Items"];
-                if (currentTrackedItems.Contains(newID))
+                var currentUnTrackedItems = trackingItem["Untrack Items"];
+                if (currentUnTrackedItems.Contains(newID))
                 {
-                    currentTrackedItems = currentTrackedItems.Replace("\r\n" + newID, "");
+                    currentUnTrackedItems = currentUnTrackedItems.Replace("\r\n" + newID, "");
+                    currentUnTrackedItems = currentUnTrackedItems.Replace(newID, "");
                     trackingItem.Editing.BeginEdit();
-                    trackingItem["Current Saved Items"] = currentTrackedItems;
+                    trackingItem["Untrack Items"] = currentUnTrackedItems;
                     trackingItem.Editing.EndEdit();
                 }
 
