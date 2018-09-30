@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sitecore.SharedSource.SitecorePackageCreator
+namespace Sitecore.SharedSource.SitecorePackageAssistant
 {
     public class TrackSavedItems
     {
@@ -38,6 +38,7 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                     var trackingItem = Factory.GetDatabase("master").GetItem("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}");
                     var newid = item.ID.ToString();
                     bool doTrackItem = true;
+
                     //Do not track if this ID is present in Untrack Items
                     var untrackItemsList = trackingItem["Untrack Items"];
                     if (untrackItemsList != null && !string.IsNullOrWhiteSpace(untrackItemsList) && untrackItemsList.Contains(newid))
@@ -73,7 +74,8 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    //throw ex;
+                    Sitecore.Diagnostics.Log("Sitecore Package Assistant. Error: " + ex.StackTrace);
                 }
                 finally
                 {

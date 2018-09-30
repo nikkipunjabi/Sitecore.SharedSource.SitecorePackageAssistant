@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Sitecore.SharedSource.SitecorePackageCreator")]
+[assembly: AssemblyTitle("Sitecore.SharedSource.SitecorePackageAssistant")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sitecore.SharedSource.SitecorePackageCreator")]
+[assembly: AssemblyProduct("Sitecore.SharedSource.SitecorePackageAssistant")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

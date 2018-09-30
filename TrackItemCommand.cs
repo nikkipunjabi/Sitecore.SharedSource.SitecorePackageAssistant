@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
 
-namespace Sitecore.SharedSource.SitecorePackageCreator
+namespace Sitecore.SharedSource.SitecorePackageAssistant
 {
     public class TrackItemCommand : Sitecore.Shell.Framework.Commands.Command
     {
@@ -22,7 +22,6 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
                 parameters["database"] = contextItem.Database.Name;
                 parameters["language"] = contextItem.Language.ToString();
                 Sitecore.Context.ClientPage.Start(this, "Run", parameters);//Run method executes on
-
             }
         }
 
@@ -36,9 +35,6 @@ namespace Sitecore.SharedSource.SitecorePackageCreator
             }
             else
             {
-                //Sitecore.Text.UrlString url = new Sitecore.Text.UrlString("/sitecore modules/shell/Demo/News.aspx");
-                //url.Append("id", args.Parameters["id"]);
-                //url.Append("database", args.Parameters["database"]);
 
                 var trackingItem = Factory.GetDatabase("master").GetItem("{BECB151A-562F-4D0C-87A7-A3CBAC3220D9}");
                 var newID = args.Parameters["id"];

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Sitecore.Configuration;
 using Sitecore.Data.Items;
 
-namespace Sitecore.SharedSource.SitecorePackageCreator
+namespace Sitecore.SharedSource.SitecorePackageAssistant
 {
     public class UntrackItemCommand : Sitecore.Shell.Framework.Commands.Command
     {

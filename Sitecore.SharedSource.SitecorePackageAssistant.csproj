@@ -7,8 +7,8 @@
     <ProjectGuid>{33D87761-03CD-4564-8D38-B3363BF7FE70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.SharedSource.SitecorePackageCreator</RootNamespace>
-    <AssemblyName>Sitecore.SharedSource.SitecorePackageCreator</AssemblyName>
+    <RootNamespace>Sitecore.SharedSource.SitecorePackageAssistant</RootNamespace>
+    <AssemblyName>Sitecore.SharedSource.SitecorePackageAssistant</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <Compile Include="UntrackItemCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Config\Include\zzz\Sitecore.SharedSource.SitecorePackageCreator.config">
+    <None Include="App_Config\Include\zzz\Sitecore.SharedSource.SitecorePackageAssistant.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.SharedSource.SitecorePackageCreator", "Sitecore.SharedSource.SitecorePackageCreator.csproj", "{33D87761-03CD-4564-8D38-B3363BF7FE70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.SharedSource.SitecorePackageAssistant", "Sitecore.SharedSource.SitecorePackageAssistant.csproj", "{33D87761-03CD-4564-8D38-B3363BF7FE70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
