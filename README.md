@@ -20,7 +20,7 @@ The package creation is being done using Sitecore Powershell Extensions as base 
 
 It uses Sitecore Gutter to show the marked items Ready for Sitecore Package, and which items to be excluded.
 
-### Features:
+# Features:
 
 Sitecore Package Assistant has the following features, which pretty much reduces the burden of package creation. Once you will use it you will realize that its you personal work assistant. This feature is not a one time use, but you will often get to use to, not daily but weekly though, you will get addicted to it.
 
@@ -104,7 +104,7 @@ And once you create package, the history of packages will be maintained here.
 The incremental packages in which the items are dependent on one another, will be easily tracked. And if missed you can easily follow the history and install the packages one by one, and get it sorted.
 This will also reduce the failed packages in stallions errors. As installation packages either small ones, take much time than expected ed, you might have noticed it while installing Sitecore Powershell Extensions. And for the larger packages of enterprise level, where there is much content, I can understand the pain it causes.
 
-### Troubleshooting
+# Troubleshooting
 
 ###  Enabling Sitecore Package Assistant 
 
@@ -122,9 +122,13 @@ And Right-Click to open it with SPE, Click on the *"Edit with ISE"*, the popup o
 ![](https://isaadansari.files.wordpress.com/2018/10/2018-10-02_1655.png)
 
 
-### Reference Links
+# Reference Links
+
 [Sitecore Experience Platform 9 update 1](https://dev.sitecore.net/Downloads.aspx)
+
 [Sitecore Powershell Extensions](https://marketplace.sitecore.net/en/Modules/Sitecore_PowerShell_console.aspx)
+
 [Sitecore Marketplace](https://marketplace.sitecore.net/)
+
  
 
