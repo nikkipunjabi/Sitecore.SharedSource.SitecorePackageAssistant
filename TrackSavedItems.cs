@@ -75,7 +75,7 @@ namespace Sitecore.SharedSource.SitecorePackageAssistant
                 catch (Exception ex)
                 {
                     //throw ex;
-                    Sitecore.Diagnostics.Log("Sitecore Package Assistant. Error: " + ex.StackTrace);
+                    //Sitecore.Diagnostics.Log("Sitecore Package Assistant. Error: " + ex.StackTrace);                    
                 }
                 finally
                 {
